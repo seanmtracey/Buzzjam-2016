@@ -1,0 +1,17 @@
+{
+  "name": "buzzjam2016",
+  "version": "1.0.0",
+  "description": "Let's MIDI this shit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Buzzjam"
+  ],
+  "author": "Sean M. Tracey",
+  "license": "MIT",
+  "dependencies": {
+    "midi": "^0.9.5"
+  }
+}
