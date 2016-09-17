@@ -12,6 +12,7 @@
   "author": "Sean M. Tracey",
   "license": "MIT",
   "dependencies": {
-    "serialport": "^4.0.1"
+    "serialport": "^4.0.1",
+    "socket.io-client": "^1.4.8"
   }
 }

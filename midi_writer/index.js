@@ -1,6 +1,6 @@
 var midi = require('midi');
 
-const duration = 100;
+const duration = 1000;
 
 // Set up a new input.
 var input = new midi.input();
@@ -23,21 +23,36 @@ const UP_CODE = 128;
 
 midiOutput.openVirtualPort("ArmBand 1");
 
-setTimeout(function(){
+const server = require('http').createServer();
+const io = require('socket.io')(server);
 
-	notes.forEach( (note, idx) => {
+let previousStates = [0,0,0,0,0,0,0,0,0,0,0];
 
-		setTimeout(function(){
-			console.log(`PRESSING ${note} (DOWN)`);
-			midiOutput.sendMessage([DOWN_CODE, note, 127]);
+io.on('connection', function(socket){
+	console.log("Client connected");
+	socket.on('buttons', function(data){
 
-			setTimeout(function(){
-				console.log(`RELEASING ${note} (UP)`);
-				midiOutput.sendMessage([UP_CODE, note, 0]);
-			}, duration);
+		const bStates = data.buttons.split('');
+		bStates.pop();
 
-		}, duration * (idx + 1));
+		for(var x = 0; x < bStates.length; x += 1){
+
+			if(bStates[x] !== previousStates[x]){
+				if(bStates[x] === "1"){
+					console.log(bStates[x]);
+					midiOutput.sendMessage([DOWN_CODE, notes[x], 127]);
+
+					setTimeout(function(){
+						midiOutput.sendMessage([UP_CODE, notes[x], 0]);
+					}, 500);
+
+				}
+			}
+
+		}
+
+		previousStates = bStates;
 
 	});
-
-}, 2000);
+});
+server.listen(3000);
