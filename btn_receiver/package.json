@@ -1,18 +1,17 @@
 {
-  "name": "midi_writer",
+  "name": "btn_receiver",
   "version": "1.0.0",
-  "description": "Test app to output MIDI values to system",
+  "description": "The program for handling the button presses on the armband",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "Buzzjam"
+    "BuzzJam"
   ],
   "author": "Sean M. Tracey",
   "license": "MIT",
   "dependencies": {
-    "midi": "^0.9.5",
-    "socket.io": "^1.4.8"
+    "serialport": "^4.0.1"
   }
 }
