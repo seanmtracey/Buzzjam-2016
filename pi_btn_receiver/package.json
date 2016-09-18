@@ -1,0 +1,19 @@
+{
+  "name": "btn_receiver",
+  "version": "1.0.0",
+  "description": "The program for handling the button presses on the armband",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "BuzzJam"
+  ],
+  "author": "Sean M. Tracey",
+  "license": "MIT",
+  "dependencies": {
+    "rpi-gpio": "^0.7.0",
+    "serialport": "^4.0.1",
+    "socket.io-client": "^1.4.8"
+  }
+}

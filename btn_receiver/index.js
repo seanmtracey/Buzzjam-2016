@@ -4,7 +4,8 @@ var SerialPort = require('serialport');
   baudrate : 57600
 });
 
-const socket = require('socket.io-client')('http://localhost:3000');
+// const socket = require('socket.io-client')('http://localhost:3000');
+const socket = require('socket.io-client')('http://192.168.0.11:3000');
 let canSend = false;
 
 socket.on('connect', function(){
