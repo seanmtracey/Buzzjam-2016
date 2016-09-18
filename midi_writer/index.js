@@ -26,33 +26,19 @@ midiOutput.openVirtualPort("ArmBand 1");
 const server = require('http').createServer();
 const io = require('socket.io')(server);
 
-let previousStates = [0,0,0,0,0,0,0,0,0,0,0];
-
 io.on('connection', function(socket){
 	console.log("Client connected");
-	socket.on('buttons', function(data){
+	socket.on('buttonPress', function(data){
 
-		const bStates = data.buttons.split('');
-		bStates.pop();
+		const idx = data.key; 
 
-		for(var x = 0; x < bStates.length; x += 1){
+		midiOutput.sendMessage([DOWN_CODE, notes[idx], 127]);
 
-			if(bStates[x] !== previousStates[x]){
-				if(bStates[x] === "1"){
-					console.log(bStates[x]);
-					midiOutput.sendMessage([DOWN_CODE, notes[x], 127]);
-
-					setTimeout(function(){
-						midiOutput.sendMessage([UP_CODE, notes[x], 0]);
-					}, 500);
-
-				}
-			}
-
-		}
-
-		previousStates = bStates;
+		setTimeout(function(){
+			midiOutput.sendMessage([UP_CODE, notes[idx], 0]);
+		}, 1000);
 
 	});
 });
+
 server.listen(3000);
