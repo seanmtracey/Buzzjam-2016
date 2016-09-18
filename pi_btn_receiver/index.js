@@ -7,7 +7,7 @@ socket.on('connect', function(){
   canSend = true;
 });
 
-const pins = [7, 11, 12, 13, 15, 16, 18, 22];
+const pins = [17, 18, 27, 22, 23, 24, 25, 5];
 const gpio = require('rpi-gpio');
 const pinStates = [0,0,0,0,0,0,0,0];
 
