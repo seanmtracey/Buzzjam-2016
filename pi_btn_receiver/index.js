@@ -1,5 +1,5 @@
-const socket = require('socket.io-client')('http://localhost:3000');
-// const socket = require('socket.io-client')('http://192.168.0.11:3000');
+//const socket = require('socket.io-client')('http://localhost:3000');
+const socket = require('socket.io-client')('http://192.168.43.186:3000');
 let canSend = false;
 
 socket.on('connect', function(){
@@ -19,7 +19,7 @@ gpio.on('change', function(channel, value) {
         key : pins.indexOf(channel)
       });
     }
-    
+
 });
 
 pins.forEach( pin => {
