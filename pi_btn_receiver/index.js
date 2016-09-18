@@ -14,7 +14,7 @@ const pinStates = [0,0,0,0,0,0,0,0];
 gpio.on('change', function(channel, value) {
     console.log('Channel ' + channel + ' value is now ' + value);
 
-    if(value === 1){
+    if(value === true){
       socket.emit('buttonPress', {
         key : pins.indexOf(channel)
       });
