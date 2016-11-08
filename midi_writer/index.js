@@ -6,17 +6,7 @@ const duration = 1000;
 var input = new midi.input();
 const midiOutput = new midi.output();
 
-const notes = [
-	36,
-	38,
-	40,
-	41,
-	43,
-	45,
-	47,
-	48,
-	50
-];
+const notes = [48, 50, 52, 53, 55, 57, 59, 60, 62, 64, 65, 67, 69, 71, 72];
 
 const DOWN_CODE = 144;
 const UP_CODE = 128;
@@ -40,5 +30,19 @@ io.on('connection', function(socket){
 
 	});
 });
+
+const t = 500;
+
+setInterval(function(){
+
+	const idx = Math.random() * notes.length | 0;
+
+	midiOutput.sendMessage([DOWN_CODE, notes[idx], 127]);
+
+	setTimeout(function(){
+		midiOutput.sendMessage([UP_CODE, notes[idx], 0]);
+	}, t);
+
+}, t);
 
 server.listen(3000);
