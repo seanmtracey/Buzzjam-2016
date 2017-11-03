@@ -1,5 +1,6 @@
 //const socket = require('socket.io-client')('http://localhost:3000');
-const socket = require('socket.io-client')('http://192.168.43.186:3000');
+require('dotenv').config();
+const socket = require('socket.io-client')(process.env.SOCKET_SERVER);
 let canSend = false;
 
 socket.on('connect', function(){
