@@ -26,16 +26,3 @@ gpio.on('change', function(channel, value) {
 pins.forEach( pin => {
   gpio.setup(pin, gpio.DIR_IN, gpio.EDGE_BOTH);
 });
-
-// Socket checking.
-/*setInterval(function(){
-
-  const randPin = Math.random() * pins.length | 0;
-
-  console.log(`Sending ${randPin}`);
-
-  socket.emit('buttonPress', {
-      key : randPin
-    });
-
-}, 1000);*/

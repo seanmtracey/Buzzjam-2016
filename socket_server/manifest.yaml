@@ -2,3 +2,4 @@ applications:
 - name: buzzjamSocketServer
   host: smt-buzzjam-wired-2017
   memory: 128M
+  command: node index.js
