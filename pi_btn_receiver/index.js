@@ -1,6 +1,6 @@
 //const socket = require('socket.io-client')('http://localhost:3000');
 require('dotenv').config();
-const fetch = require('fetch');
+const fetch = require('node-fetch');
 
 fetch('https://smt-buzzjam-2017.herokuapp.com/get-socket')
   .then(res => {
