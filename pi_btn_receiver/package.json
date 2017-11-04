@@ -15,6 +15,7 @@
   "dependencies": {
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",
+    "node-fetch": "^1.7.3",
     "rpi-gpio": "^0.7.0",
     "serialport": "^4.0.1",
     "socket.io-client": "^1.4.8"
